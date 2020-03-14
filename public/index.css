@@ -1,0 +1,58 @@
+.add {
+  height: 100px;
+  width: 200px;
+  font-family: sans-serif;
+  background-color: white;
+  color: #90ee90;
+  font-size: 40px;
+  border-width: 5px;
+  border-color: white;
+  position: absolute;
+  z-index: 2;
+  top: 10px;
+  left: 10px;
+  
+}
+
+.add:hover {
+  background-color: white;
+  color: black;
+  border-color: gray;
+  transition: 1s;
+}
+
+.add:active {
+  top: 0.1em;
+  transition: 0.3s;
+  background-color: #90ee90;
+  color: white;
+  border-color: white;
+}
+
+section {
+  float: left;
+  background: #bdc3c7;
+  padding: 10px;
+  margin: 30px;
+  width: 300px;
+  box-shadow: 3px 3px 1px #34495e;
+  min-height: 400px;
+}
+.insert {
+  background: #2ecc71;
+}
+.input label {
+  display: block;
+  font-weight: bold;
+  padding: 2px 0;
+}
+
+.input,
+button {
+  font: inherit;
+} 
+
+.linnuke{
+  height: 30px;
+  width: 30px;
+}

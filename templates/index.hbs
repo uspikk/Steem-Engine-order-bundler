@@ -1,0 +1,78 @@
+<!doctype html>
+<head>
+	<title>Trading bot</title>
+	<link rel="stylesheet" href="/public/index.css">
+</head>
+<body>
+    {{# if default}}
+	<button class="add" onclick="window.location.href='/lookup'">LOOKUP</button>
+    {{/if}}
+    {{# if lookup}}
+	<section class="insert">
+	    <h3>Insert Data</h3> 
+	    <form action="/gettoken" method="post">
+	        <div class="input">
+	            <label for="token">Token:</label>
+	            <input type="text" id="token" name="token" placeholder="SYMBOL">
+	        </div>
+	        <div class="input">
+	            <label for="account">Account:</label>
+	            <input type="text" id="account" name="account" placeholder="STEEM USER">
+	        </div>
+	        <div class="input">
+	        	<label for="mode">Mode:</label>
+				<select id="mode" class="mode" name="mode">
+				  <option value="0" selected>Select mode</option>
+				  <option value="long">long</option>
+				  <option value="short">short</option>
+				</select>
+	        </div>
+	       <button type="submit" class="addtokenInsert">INSERT</button>
+	    </form>
+
+	</section>
+    {{/if}}
+    {{# if lbooks}}
+    {{# unless items}}
+	<button class="add" onclick="window.location.href='/lbooks'">F5</button>
+    {{/unless}}
+	  	<section class="coins">
+	  	<form action="/slong" method="post">
+        {{# each items }}
+            <article class="item">
+            	<input type="checkbox" name="{{this._id}}" value="{{ this.txId }}" class="linnuke">
+                <div>price: {{ this.price }}</div>
+                <div>quantity: {{ this.quantity }}</div>
+                <div>Steemval: {{this.steemVal}}</div>
+                ______________________________
+            </article>
+        {{/each}}
+        <button class="submit" type="submit">SUBMIT</button>
+        </form> 
+    </section>
+    {{/if}}
+    {{# if sbooks}}
+    {{# unless items}}
+	<button class="add" onclick="window.location.href='/sbooks'">F5</button>
+    {{/unless}}
+	  	<section class="coins">
+	  	<form action="/sshort" method="post">
+        {{# each items }}
+            <article class="item">
+            	<input type="checkbox" name="{{this._id}}" value="{{ this.txId }}" class="linnuke">
+                <div>price: {{ this.price }}</div>
+                <div>quantity: {{ this.quantity }}</div>
+                <div>Steemval: {{this.steemVal}}</div>
+                ______________________________
+            </article>
+        {{/each}}
+        <button class="submit" type="submit">SUBMIT</button>
+        </form> 
+    </section>
+    {{/if}}
+    {{# if txbutton}}
+     <button id="txbutton" class="add" onclick="txbutton({{ txtlogic }})">TX</button>
+     <span id="accountname" accname="{{ account }}" />
+    {{/if}}
+<script src="/public/index.js""></script>
+</body>
